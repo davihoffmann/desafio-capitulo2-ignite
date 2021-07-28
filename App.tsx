@@ -5,6 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { AppRoutes } from './src/routes/app.routes';
 
+import { StorageDataProvider } from './src/hooks/storageData';
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -16,8 +18,10 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <AppRoutes />
-    </NavigationContainer>
+    <StorageDataProvider>
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
+    </StorageDataProvider>
   );
 }
